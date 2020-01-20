@@ -16,6 +16,8 @@ extension CalculatorViewController {
     resultLable.backgroundColor = .lableBackgroundColor
     resultLable.textColor = .textResultColor
     resultLable.text = "1"
+    resultLable.font = .systemFont(ofSize: 30)
+    resultLable.textAlignment = .right
     
     textLable.forEach{$0.textColor = .otherTextLableColor}
     
