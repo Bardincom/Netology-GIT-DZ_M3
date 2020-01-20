@@ -13,6 +13,8 @@
 		74C29C6B201A107C004E418D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C29C6A201A107C004E418D /* Assets.xcassets */; };
 		74C29C6E201A107C004E418D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C29C6C201A107C004E418D /* LaunchScreen.storyboard */; };
 		A2F6522923D4376A00E6EDDE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A2F6522823D4376A00E6EDDE /* .gitignore */; };
+		A2F6522B23D4E3CD00E6EDDE /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F6522A23D4E3CD00E6EDDE /* Extension + UIColor.swift */; };
+		A2F6522D23D5D86100E6EDDE /* Extention + CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F6522C23D5D86100E6EDDE /* Extention + CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		74C29C6D201A107C004E418D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C29C6F201A107C004E418D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2F6522823D4376A00E6EDDE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		A2F6522A23D4E3CD00E6EDDE /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
+		A2F6522C23D5D86100E6EDDE /* Extention + CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention + CalculatorViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 			children = (
 				74C29C63201A107B004E418D /* AppDelegate.swift */,
 				74C29C65201A107C004E418D /* CalculatorViewController.swift */,
+				A2F6522A23D4E3CD00E6EDDE /* Extension + UIColor.swift */,
+				A2F6522C23D5D86100E6EDDE /* Extention + CalculatorViewController.swift */,
 				74C29C67201A107C004E418D /* Main.storyboard */,
 			);
 			path = Code;
@@ -166,6 +172,8 @@
 			files = (
 				74C29C66201A107C004E418D /* CalculatorViewController.swift in Sources */,
 				74C29C64201A107B004E418D /* AppDelegate.swift in Sources */,
+				A2F6522B23D4E3CD00E6EDDE /* Extension + UIColor.swift in Sources */,
+				A2F6522D23D5D86100E6EDDE /* Extention + CalculatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
