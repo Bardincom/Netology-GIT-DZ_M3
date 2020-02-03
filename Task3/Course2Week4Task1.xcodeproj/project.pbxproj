@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A22BFE1923E78D770050C0CB /* Extension + RatioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22BFE1823E78D770050C0CB /* Extension + RatioViewController.swift */; };
 		A261031623E0BE460094FAE9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A261031523E0BE460094FAE9 /* .gitignore */; };
 		D47B2290202541BF002FF6F5 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47B228F202541BF002FF6F5 /* RadioViewController.swift */; };
 		D47B233120288D45002FF6F5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47B233020288D45002FF6F5 /* RoundView.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A22BFE1823E78D770050C0CB /* Extension + RatioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + RatioViewController.swift"; sourceTree = "<group>"; };
 		A261031523E0BE460094FAE9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D47B228F202541BF002FF6F5 /* RadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		D47B233020288D45002FF6F5 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				D423ECF42029F8FC00C6462D /* Do not change */,
 				D4C5FB5D20226B6500C64E35 /* Main.storyboard */,
 				D47B228F202541BF002FF6F5 /* RadioViewController.swift */,
+				A22BFE1823E78D770050C0CB /* Extension + RatioViewController.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			files = (
 				D47B2335202890E9002FF6F5 /* RoundButton.swift in Sources */,
 				D47B233120288D45002FF6F5 /* RoundView.swift in Sources */,
+				A22BFE1923E78D770050C0CB /* Extension + RatioViewController.swift in Sources */,
 				D4C5FB5A20226B6500C64E35 /* AppDelegate.swift in Sources */,
 				D47B2290202541BF002FF6F5 /* RadioViewController.swift in Sources */,
 				D47B2337202892AB002FF6F5 /* RoundViewExtension.swift in Sources */,
