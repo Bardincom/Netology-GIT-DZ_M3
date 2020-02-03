@@ -11,8 +11,8 @@ class RadioViewController: UIViewController {
   
   //  MARK: Properties
   
-  let albumImage = UIImage(named: "Aerosmith")
-  let musicTrack: (groupName: String, trackName: String) = ("Aerosmith", "Hole In My Soul")
+  let albumImage = UIImage(named: "Beatles")
+  let musicTrack: (groupName: String, trackName: String) = ("Beatles", "A Day in the Life")
   let startingValuesSliders: Float = 0.5
   let fontTrackText: UIFont = .systemFont(ofSize: 22, weight: .medium)
   let colorTrackText: UIColor = .black
@@ -23,7 +23,7 @@ class RadioViewController: UIViewController {
   
   //  MARK: UI Elements
   
-  lazy var albumCover: UIImageView = {
+  lazy var albumCoverImage: UIImageView = {
     var imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
     imageView = UIImageView(image: albumImage)
@@ -35,6 +35,7 @@ class RadioViewController: UIViewController {
     var progressView = UIProgressView()
     progressView = .init(progressViewStyle: .bar)
     progressView.progress = startingValuesSliders
+    progressView.trackTintColor = .lightGray
     progressView.translatesAutoresizingMaskIntoConstraints = false
     return progressView
   }()
@@ -46,7 +47,7 @@ class RadioViewController: UIViewController {
     return slider
   }()
   
-  lazy var track: UILabel = {
+  lazy var trackNameLable: UILabel = {
     var lable = UILabel()
     lable.font = fontTrackText
     lable.textColor = colorTrackText
@@ -65,41 +66,8 @@ class RadioViewController: UIViewController {
     addSubviews()
     configureConstraints()
     settingInitialConstrains()
-    print("viewDidLoad")
-    print(coordLable())
   }
  
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    print("viewWillAppear")
-    print(coordLable())
-  }
-  override func viewWillLayoutSubviews() {
-    print("viewWillLayoutSubviews")
-    print(coordLable())
-  }
-  
-  override func updateViewConstraints() {
-    print("updateViewConstraints")
-    print(coordLable())
-    super.updateViewConstraints()
-  }
-  override func viewDidLayoutSubviews() {
-    print("viewDidLayoutSubviews")
-    print(coordLable())
-   
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    print("viewDidAppear")
-    print(coordLable())
-   
-  }
-  
-
-  
   //  MARK: traitCollectionDidChange
   
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -122,19 +90,16 @@ class RadioViewController: UIViewController {
   }
   
   private func addSubviews() {
-    view.addSubview(albumCover)
+    view.addSubview(albumCoverImage)
     view.addSubview(audioProgress)
     view.addSubview(volumeSlider)
-    view.addSubview(track)
-    
+    view.addSubview(trackNameLable)
   }
   
-  func configureConstraints() {
+  private func configureConstraints() {
     compactConstraints.append(contentsOf: configurePortreitConstrain())
     regularConstraints.append(contentsOf: configureLandscapeConstraints())
   }
-  
-  
   
 }
 
