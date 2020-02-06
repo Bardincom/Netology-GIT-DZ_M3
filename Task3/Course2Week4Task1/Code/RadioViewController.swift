@@ -47,15 +47,15 @@ class RadioViewController: UIViewController {
     return slider
   }()
   
-  lazy var trackNameLable: UILabel = {
-    var lable = UILabel()
-    lable.font = fontTrackText
-    lable.textColor = colorTrackText
-    lable.textAlignment = .center
-    lable.numberOfLines = 1
-    lable.text = musicTrack.groupName + " - " + musicTrack.trackName
-    lable.translatesAutoresizingMaskIntoConstraints = false
-    return lable
+  lazy var trackNameLabel: UILabel = {
+    var label = UILabel()
+    label.font = fontTrackText
+    label.textColor = colorTrackText
+    label.textAlignment = .center
+    label.numberOfLines = 1
+    label.text = musicTrack.groupName + " - " + musicTrack.trackName
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
   }()
   
   //  MARK: viewDidLoad
@@ -65,7 +65,7 @@ class RadioViewController: UIViewController {
     
     addSubviews()
     configureConstraints()
-    settingInitialConstrains()
+    setInitialConstrains()
   }
  
   //  MARK: traitCollectionDidChange
@@ -73,18 +73,34 @@ class RadioViewController: UIViewController {
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     super.traitCollectionDidChange(previousTraitCollection)
     
+//    guard traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular else {
+//      guard !compactConstraints.isEmpty && compactConstraints.first?.isActive != nil else {
+//        return
+//      }
+//      NSLayoutConstraint.deactivate(compactConstraints)
+//      NSLayoutConstraint.activate(regularConstraints)
+//      return
+//    }
+//
+//    guard !regularConstraints.isEmpty && regularConstraints.first?.isActive != nil else {
+//      return
+//    }
+//    NSLayoutConstraint.deactivate(regularConstraints)
+//    NSLayoutConstraint.activate(compactConstraints)
+    
     if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
-      if regularConstraints.count > 0 && regularConstraints[0].isActive {
+
+      if !regularConstraints.isEmpty && regularConstraints.first?.isActive != nil {
         NSLayoutConstraint.deactivate(regularConstraints)
       }
-      
+
       NSLayoutConstraint.activate(compactConstraints)
-      
+
     } else {
-      if compactConstraints.count > 0 && compactConstraints[0].isActive {
+      if !compactConstraints.isEmpty && compactConstraints.first?.isActive != nil {
         NSLayoutConstraint.deactivate(compactConstraints)
       }
-      
+
       NSLayoutConstraint.activate(regularConstraints)
     }
   }
@@ -93,15 +109,13 @@ class RadioViewController: UIViewController {
     view.addSubview(albumCoverImage)
     view.addSubview(audioProgress)
     view.addSubview(volumeSlider)
-    view.addSubview(trackNameLable)
+    view.addSubview(trackNameLabel)
   }
   
   private func configureConstraints() {
-    compactConstraints.append(contentsOf: configurePortreitConstrain())
+    compactConstraints.append(contentsOf: configurePortraitConstraints())
     regularConstraints.append(contentsOf: configureLandscapeConstraints())
   }
   
 }
-
-
 

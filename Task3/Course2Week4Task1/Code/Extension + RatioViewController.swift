@@ -10,7 +10,7 @@ import UIKit
 
 extension RadioViewController {
   
-  func settingInitialConstrains() {
+  func setInitialConstrains() {
     if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
       NSLayoutConstraint.activate(compactConstraints)
     } else {
@@ -21,7 +21,7 @@ extension RadioViewController {
   
   //  MARK: Portrait Constrains
   
-  func configurePortreitConstrain() -> [NSLayoutConstraint] {
+  func configurePortraitConstraints() -> [NSLayoutConstraint] {
     return [
       albumCoverImage.heightAnchor.constraint(equalTo: albumCoverImage.widthAnchor, multiplier: 1.0),
       albumCoverImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8.0),
@@ -37,11 +37,11 @@ extension RadioViewController {
       volumeSlider.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24.0),
       volumeSlider.heightAnchor.constraint(equalToConstant: 31),
 
-      trackNameLable.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0.0),
-      trackNameLable.topAnchor.constraint(equalTo: audioProgress.bottomAnchor),
-      trackNameLable.bottomAnchor.constraint(equalTo: volumeSlider.topAnchor),
-      trackNameLable.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
-      trackNameLable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0)
+      trackNameLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0.0),
+      trackNameLabel.topAnchor.constraint(equalTo: audioProgress.bottomAnchor),
+      trackNameLabel.bottomAnchor.constraint(equalTo: volumeSlider.topAnchor),
+      trackNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
+      trackNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0)
     ]
   }
   
@@ -53,7 +53,7 @@ extension RadioViewController {
       albumCoverImage.topAnchor.constraint(equalTo: audioProgress.topAnchor, constant: 16.0),
       albumCoverImage.bottomAnchor.constraint(equalTo: volumeSlider.topAnchor, constant: -16.0),
       albumCoverImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
-      albumCoverImage.trailingAnchor.constraint(equalTo: trackNameLable.leadingAnchor, constant: -16.0),
+      albumCoverImage.trailingAnchor.constraint(equalTo: trackNameLabel.leadingAnchor, constant: -16.0),
       
       volumeSlider.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
       volumeSlider.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
@@ -64,9 +64,9 @@ extension RadioViewController {
       audioProgress.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
       audioProgress.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
       
-      trackNameLable.topAnchor.constraint(equalTo: audioProgress.bottomAnchor),
-      trackNameLable.bottomAnchor.constraint(equalTo: volumeSlider.topAnchor),
-      trackNameLable.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
+      trackNameLabel.topAnchor.constraint(equalTo: audioProgress.bottomAnchor),
+      trackNameLabel.bottomAnchor.constraint(equalTo: volumeSlider.topAnchor),
+      trackNameLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
     ]
   }
   
