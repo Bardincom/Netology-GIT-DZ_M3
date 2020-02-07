@@ -20,7 +20,7 @@ class CABasicAnimationController: UIViewController {
   
   private let angle: Float = 315
   
-//  MARK: viewDidLoad
+//  MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
