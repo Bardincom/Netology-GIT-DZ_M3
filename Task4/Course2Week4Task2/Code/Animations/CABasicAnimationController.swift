@@ -7,19 +7,6 @@
 
 import UIKit
 
-
-/*
- Первый тип анимации - CABasicAnimation, которой соответствует CABasicAnimationController. У этого контроллера имеется 4 UIView аутлета разных цветов: оранжевого, бирюзового, синего и зелёного. Тап по каждому из этих views запускает свою анимацию типа CABasicAnimation:
- 
- orangeView должен анимированно превратиться в окружность. Длительность анимации - одна секунда, timingFunction - kCAMediaTimingFunctionEaseOut, после окончания анимации view должен оставаться окружностью.
- 
- cyanView должен стать невидимым. Длительность анимации - одна секунда, timingFunction - kCAMediaTimingFunctionEaseIn, после окончания анимации view должен оставаться невидимым.
- 
- blueView должен переместиться вдоль оси Х. Конечное значение x - координаты его центра - аналогичная координата центра cyanView. Одновременно с этим blueView должен повернуться на 315° по часовой стрелке вокруг оси Z. Длительность обеих анимаций - две секунды, timingFunction - kCAMediaTimingFunctionEaseInEaseOut. По окончании анимации blueView должен сохранять это состояние.
- 
- greenView должен переместиться из своего начального положения в центр родительского view. Одновременно с этим его масштаб должен увеличиться в 1.5 раза по обеим осям (X и Y) и background color должен стать magenta. После завершения этих анимаций greenView должен анимированно вернуться в исходное состояние. Цикл должен повториться два раза. Длительность одного цикла анимаций - одна секунда, timingFunction -kCAMediaTimingFunctionEaseInEaseOut.
- */
-
 class CABasicAnimationController: UIViewController {
   
   @IBOutlet weak var orangeView: UIView!
@@ -27,19 +14,24 @@ class CABasicAnimationController: UIViewController {
   @IBOutlet weak var blueView: UIView!
   @IBOutlet weak var greenView: UIView!
   
-  let backgroundColorForGreenView = UIColor.magenta.cgColor
+  private var backgroundColorForGreenView: CGColor {
+   return UIColor.magenta.cgColor
+  }
   
+  private let angle: Float = 315
+  
+//  MARK: viewDidLoad
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let gesture = UITapGestureRecognizer(target: self,
-                                         action:  #selector (self.tapView(_:)))
-//    orangeView.addGestureRecognizer(gesture)
-//    cyanView.addGestureRecognizer(gesture)
-//    blueView.addGestureRecognizer(gesture)
-    greenView.addGestureRecognizer(gesture)
+    allGusture()
   }
   
+  private func calculateAngleRotation(_ angle: Float) -> Float {
+    return (angle * Float.pi) / 180
+  }
+  
+//  MARK: Animation Configuration
   private func changeCornerRadiusSquare() {
     let animation = CABasicAnimation(keyPath: #keyPath(CALayer.cornerRadius))
     animation.duration = 1
@@ -49,7 +41,7 @@ class CABasicAnimationController: UIViewController {
   }
   
   private func makeSquareInvisible() {
-    let animation = CABasicAnimation(keyPath: #keyPath(CALayer.backgroundColor))
+    let animation = CABasicAnimation(keyPath: "backgroundColor")
     animation.duration = 1
     animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
     cyanView.layer.backgroundColor = .none
@@ -58,67 +50,82 @@ class CABasicAnimationController: UIViewController {
   
   private func moveSquareAlongXAxis() {
     let point = CGPoint(x: cyanView.center.x, y: blueView.layer.position.y)
-    let animation = CABasicAnimation(keyPath: "position")
-    animation.duration = 2
-    animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-    animation.fromValue = blueView.layer.position
-    animation.toValue = point
-    blueView.layer.add(animation, forKey: nil)
-    blueView.layer.position = point
-    
+    let moveAnimation = CABasicAnimation(keyPath: "position")
+    moveAnimation.fromValue = blueView.layer.position
+    moveAnimation.toValue = point
+
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-    rotateAnimation.fillMode = .forwards
-    rotateAnimation.isRemovedOnCompletion = false
-    rotateAnimation.duration = 2
-    rotateAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     rotateAnimation.fromValue = 0
-    rotateAnimation.toValue = (315 * Float.pi) / 180
-    blueView.layer.add(rotateAnimation, forKey: "position")
+    rotateAnimation.toValue = calculateAngleRotation(angle)
+    
+    let groupAnimation = CAAnimationGroup()
+    groupAnimation.animations = [moveAnimation, rotateAnimation]
+    groupAnimation.duration = 2
+    groupAnimation.fillMode = .forwards
+    groupAnimation.isRemovedOnCompletion = false
+    groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+    blueView.layer.add(groupAnimation, forKey: "groupAnimation")
+     blueView.layer.position = point
   }
   
-///  greenView должен переместиться из своего начального положения в центр родительского view. Одновременно с этим его масштаб должен увеличиться в 1.5 раза по обеим осям (X и Y) и background color должен стать magenta. После завершения этих анимаций greenView должен анимированно вернуться в исходное состояние. Цикл должен повториться два раза. Длительность одного цикла анимаций - одна секунда, timingFunction -kCAMediaTimingFunctionEaseInEaseOut.
   private func performMoveAnimation() {
     let point = view.center
     let scaleValue: Float = 1.5
-    let animation = CABasicAnimation(keyPath: "position")
-    animation.duration = 1
-    animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-    animation.repeatCount = 2
-    animation.autoreverses = true
-    animation.fillMode = .backwards
-    animation.toValue = point
-    greenView.layer.add(animation, forKey: nil)
-    
+
+    let positionAnimation = CABasicAnimation(keyPath: "position")
+    positionAnimation.toValue = point
+
     let colorAnimation = CABasicAnimation(keyPath: "backgroundColor")
-    colorAnimation.duration = 1
-    colorAnimation.isRemovedOnCompletion = false
-    colorAnimation.fillMode = .forwards
-    colorAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-    colorAnimation.repeatCount = 2
-    colorAnimation.autoreverses = true
-    greenView.layer.backgroundColor = backgroundColorForGreenView
-    greenView.layer.add(colorAnimation, forKey: nil)
     
     let sizeAnimation = CABasicAnimation(keyPath: "transform.scale")
-    sizeAnimation.duration = 1
-    sizeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-    sizeAnimation.repeatCount = 2
-    sizeAnimation.autoreverses = true
     sizeAnimation.fromValue = 1.0
     sizeAnimation.toValue = scaleValue
-    greenView.layer.add(sizeAnimation, forKey: nil)
     
+    let groupAnimation = CAAnimationGroup()
+    groupAnimation.animations = [positionAnimation, colorAnimation, sizeAnimation]
+    groupAnimation.duration = 1
+    groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+    groupAnimation.repeatCount = 2
+    groupAnimation.autoreverses = true
+    groupAnimation.isRemovedOnCompletion = false
+    groupAnimation.fillMode = .forwards
+    greenView.layer.backgroundColor = backgroundColorForGreenView
+    greenView.layer.add(groupAnimation, forKey: nil)
   }
- 
-  
-  @objc func tapView(_ sender: UITapGestureRecognizer){
-    print("Нажатие")
-//      changeCornerRadiusSquare()
-//makeSquareInvisible()
-//    moveSquareAlongXAxis()
-performMoveAnimation()
-    
-  }
-  
   
 }
+
+// MARK: Activation View animations
+private extension CABasicAnimationController {
+  
+  private func gesture(_ view: UIView, _ sender: Selector) {
+    let gesture = UITapGestureRecognizer(target: self,
+                                         action:  sender)
+    view.addGestureRecognizer(gesture)
+  }
+  
+  private func allGusture() {
+    gesture(orangeView, #selector(tapOrangeView))
+    gesture(cyanView, #selector(tapCyanView))
+    gesture(blueView, #selector(tapBlueView))
+    gesture(greenView, #selector(tapGreenView))
+  }
+  
+  @objc func tapOrangeView(_ sender: UITapGestureRecognizer){
+    changeCornerRadiusSquare()
+  }
+  
+  @objc func tapCyanView(_ sender: UITapGestureRecognizer){
+    makeSquareInvisible()
+  }
+  
+  @objc func tapBlueView(_ sender: UITapGestureRecognizer){
+    moveSquareAlongXAxis()
+  }
+  
+  @objc func tapGreenView(_ sender: UITapGestureRecognizer){
+    performMoveAnimation()
+  }
+  
+}
+
