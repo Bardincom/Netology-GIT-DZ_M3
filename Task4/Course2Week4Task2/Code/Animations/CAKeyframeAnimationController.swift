@@ -50,8 +50,8 @@ class CAKeyframeAnimationController: UIViewController {
   
 }
 
-extension CAKeyframeAnimationController {
-  private func showSinPath() {
+private extension CAKeyframeAnimationController {
+  func showSinPath() {
     let shapeLayer = CAShapeLayer()
     shapeLayer.path = sinPath()
     shapeLayer.fillColor = UIColor.clear.cgColor
@@ -59,7 +59,7 @@ extension CAKeyframeAnimationController {
     view.layer.addSublayer(shapeLayer)
   }
   
-  private func sinPath() -> CGPath {
+  func sinPath() -> CGPath {
     let startPoint = orangeView.center
     let width = self.view.bounds.width - 2 * startPoint.x
     let height = self.view.bounds.height / 6.0

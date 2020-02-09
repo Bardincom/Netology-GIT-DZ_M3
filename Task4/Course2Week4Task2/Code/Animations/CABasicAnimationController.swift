@@ -54,7 +54,7 @@ class CABasicAnimationController: UIViewController {
     moveAnimation.fromValue = blueView.layer.position
     moveAnimation.toValue = point
 
-    let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+    let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
     rotateAnimation.fromValue = 0
     rotateAnimation.toValue = calculateAngleRotation(angle)
     
