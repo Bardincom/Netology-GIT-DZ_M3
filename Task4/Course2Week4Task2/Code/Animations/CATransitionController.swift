@@ -27,21 +27,31 @@ class CATransitionController: UIViewController {
   @IBOutlet weak var textLabel: UILabel!
   
   @IBAction func swipeHandler(_ sender: UISwipeGestureRecognizer) {
-    changeTextAnimation()
+    self.changeTextAnimation()
   }
   
   private func changeTextAnimation() {
     let swipeAnimation = CATransition()
+    swipeAnimation.delegate = self
     swipeAnimation.duration = 1
     swipeAnimation.type = .moveIn
-//    swipeAnimation.subtype = .fromLeft
     swipeAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
-//    swipeAnimation.fillMode = .removed
-//    swipeAnimation.isRemovedOnCompletion = false
     textLabel.textColor = .green
     textLabel.text = "Sliding!"
-    
     textLabel.layer.add(swipeAnimation, forKey: nil)
   }
+  
+}
 
+//MARK: CAAnimationDelegate
+extension CATransitionController: CAAnimationDelegate {
+  func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+     let swipeAnimation = CATransition()
+     swipeAnimation.duration = 1
+     swipeAnimation.type = .fade
+     swipeAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+     textLabel.textColor = .orange
+     textLabel.text = "Initial text"
+     textLabel.layer.add(swipeAnimation, forKey: nil)
+   }
 }
