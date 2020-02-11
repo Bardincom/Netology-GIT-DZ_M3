@@ -15,12 +15,12 @@ class CABasicAnimationController: UIViewController {
   @IBOutlet weak var greenView: UIView!
   
   private var backgroundColorForGreenView: CGColor {
-   return UIColor.magenta.cgColor
+    return UIColor.magenta.cgColor
   }
   
   private let angle: Float = 315
   
-//  MARK: - Life cycle
+  //  MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -31,7 +31,7 @@ class CABasicAnimationController: UIViewController {
     return (angle * Float.pi) / 180
   }
   
-//  MARK: Animation Configuration
+  //  MARK: Animation Configuration
   private func changeCornerRadiusSquare() {
     let animation = CABasicAnimation(keyPath: #keyPath(CALayer.cornerRadius))
     animation.duration = 1
@@ -53,7 +53,7 @@ class CABasicAnimationController: UIViewController {
     let moveAnimation = CABasicAnimation(keyPath: "position")
     moveAnimation.fromValue = blueView.layer.position
     moveAnimation.toValue = point
-
+    
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
     rotateAnimation.fromValue = 0
     rotateAnimation.toValue = calculateAngleRotation(angle)
@@ -65,16 +65,16 @@ class CABasicAnimationController: UIViewController {
     groupAnimation.isRemovedOnCompletion = false
     groupAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
     blueView.layer.add(groupAnimation, forKey: "groupAnimation")
-     blueView.layer.position = point
+    blueView.layer.position = point
   }
   
   private func performMoveAnimation() {
     let point = view.center
     let scaleValue: Float = 1.5
-
+    
     let positionAnimation = CABasicAnimation(keyPath: "position")
     positionAnimation.toValue = point
-
+    
     let colorAnimation = CABasicAnimation(keyPath: "backgroundColor")
     
     let sizeAnimation = CABasicAnimation(keyPath: "transform.scale")
@@ -105,10 +105,15 @@ private extension CABasicAnimationController {
   }
   
   private func allGusture() {
-    gesture(orangeView, #selector(tapOrangeView))
-    gesture(cyanView, #selector(tapCyanView))
-    gesture(blueView, #selector(tapBlueView))
-    gesture(greenView, #selector(tapGreenView))
+    let squareViews = [orangeView: #selector(tapOrangeView),
+                       cyanView: #selector(tapCyanView),
+                       blueView: #selector(tapBlueView),
+                       greenView: #selector(tapGreenView)]
+    
+    for (squareView, animationFunc) in squareViews {
+      guard let squareView = squareView else { break }
+      gesture(squareView, animationFunc)
+    }
   }
   
   @objc func tapOrangeView(_ sender: UITapGestureRecognizer){
