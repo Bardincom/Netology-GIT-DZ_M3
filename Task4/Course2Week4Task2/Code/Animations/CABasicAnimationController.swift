@@ -36,7 +36,7 @@ class CABasicAnimationController: UIViewController {
     let animation = CABasicAnimation(keyPath: #keyPath(CALayer.cornerRadius))
     animation.duration = 1
     animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-    orangeView.layer.cornerRadius = 50
+    orangeView.layer.cornerRadius = orangeView.frame.height / 2
     orangeView.layer.add(animation, forKey: nil)
   }
   
