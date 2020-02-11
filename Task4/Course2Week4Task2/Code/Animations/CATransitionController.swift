@@ -7,21 +7,6 @@
 
 import UIKit
 
-/*
- Следующий тип анимации - CATransition, которой соответствует CATransitionController.
- У этого контроллера имеется один аутлет textLabel с текстом “Initial text” оранжевого цвета.
- Нужно сделать так, чтобы по свайпу в корневом view слева направо текст анимированно менялся на “Sliding!” со следующими параметрами:
- transition type - kCATransitionMoveIn,
- цвет текста .green,
- длительность анимации - 1 секунда,
- timingFunction - kCAMediaTimingFunctionEaseOut.
- По окончании этой анимации текст должен анимированно поменяться на первоначальный, параметры этой анимации следующие:
- transition type - kCATransitionFade,
- цвет текста .orange,
- длительность анимации - 1 секунда,
- timingFunction - kCAMediaTimingFunctionEaseOut.
- 
- */
 class CATransitionController: UIViewController {
   
   @IBOutlet weak var textLabel: UILabel!
