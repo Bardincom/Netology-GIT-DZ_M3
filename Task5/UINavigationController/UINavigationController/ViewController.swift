@@ -24,7 +24,6 @@ class ViewController: UIViewController {
   
   let containerView: UIView = {
     let view = UIView()
-    view.backgroundColor = .red
     return view
   }()
   
@@ -69,6 +68,7 @@ class ViewController: UIViewController {
     button.setTitle("Push", for: .normal)
     button.sizeToFit()
     button.backgroundColor = .green
+    button.addTarget(self, action: #selector(switchSecondController(_:)), for: .touchUpInside)
     return button
   }()
   
@@ -132,6 +132,11 @@ private extension ViewController {
       $0.top.equalTo(appearanceTimeLable.snp.bottom).offset(16)
       $0.leading.equalToSuperview().offset(16)
     }
+  }
+  
+  @objc func switchSecondController(_ sender: UITapGestureRecognizer){
+    let secondViewController = SecondViewController()
+    navigationController?.pushViewController(secondViewController, animated: true)
   }
 }
 
