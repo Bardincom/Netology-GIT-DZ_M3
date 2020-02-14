@@ -50,7 +50,6 @@
 				6EDFCFF79D3F21024A97161C /* Pods-UINavigationController.debug.xcconfig */,
 				F52DC3215AD30E185AC16C24 /* Pods-UINavigationController.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
