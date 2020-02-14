@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4979A8863B3DDBE0ED75C4B0 /* Pods_UINavigationController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FB22E21BA9996FCA1C8317 /* Pods_UINavigationController.framework */; };
 		A2881CA923F74CA0001103EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2881CA823F74CA0001103EF /* AppDelegate.swift */; };
 		A2881CAB23F74CA0001103EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2881CAA23F74CA0001103EF /* SceneDelegate.swift */; };
 		A2881CAD23F74CA0001103EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2881CAC23F74CA0001103EF /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23FB22E21BA9996FCA1C8317 /* Pods_UINavigationController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UINavigationController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EDFCFF79D3F21024A97161C /* Pods-UINavigationController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UINavigationController.debug.xcconfig"; path = "Target Support Files/Pods-UINavigationController/Pods-UINavigationController.debug.xcconfig"; sourceTree = "<group>"; };
 		A2881CA523F74CA0001103EF /* UINavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UINavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2881CA823F74CA0001103EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2881CAA23F74CA0001103EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		A2881CB423F74CA2001103EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2881CB623F74CA2001103EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2881CBE23F74D71001103EF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F52DC3215AD30E185AC16C24 /* Pods-UINavigationController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UINavigationController.release.xcconfig"; path = "Target Support Files/Pods-UINavigationController/Pods-UINavigationController.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,18 +37,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4979A8863B3DDBE0ED75C4B0 /* Pods_UINavigationController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		104A3DD6B74DEAACC20A7EA3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6EDFCFF79D3F21024A97161C /* Pods-UINavigationController.debug.xcconfig */,
+				F52DC3215AD30E185AC16C24 /* Pods-UINavigationController.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5F84012F43426ECD90D3C8D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23FB22E21BA9996FCA1C8317 /* Pods_UINavigationController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A2881C9C23F74CA0001103EF = {
 			isa = PBXGroup;
 			children = (
 				A2881CBE23F74D71001103EF /* .gitignore */,
 				A2881CA723F74CA0001103EF /* UINavigationController */,
 				A2881CA623F74CA0001103EF /* Products */,
+				104A3DD6B74DEAACC20A7EA3 /* Pods */,
+				5F84012F43426ECD90D3C8D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2881CB923F74CA2001103EF /* Build configuration list for PBXNativeTarget "UINavigationController" */;
 			buildPhases = (
+				C705075ED0D7625E935B7637 /* [CP] Check Pods Manifest.lock */,
 				A2881CA123F74CA0001103EF /* Sources */,
 				A2881CA223F74CA0001103EF /* Frameworks */,
 				A2881CA323F74CA0001103EF /* Resources */,
+				EA99BD8024D7E8CB85C4BA97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,6 +163,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C705075ED0D7625E935B7637 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UINavigationController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA99BD8024D7E8CB85C4BA97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UINavigationController/Pods-UINavigationController-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UINavigationController/Pods-UINavigationController-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UINavigationController/Pods-UINavigationController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2881CA123F74CA0001103EF /* Sources */ = {
@@ -286,6 +355,7 @@
 		};
 		A2881CBA23F74CA2001103EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EDFCFF79D3F21024A97161C /* Pods-UINavigationController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +374,7 @@
 		};
 		A2881CBB23F74CA2001103EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F52DC3215AD30E185AC16C24 /* Pods-UINavigationController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
