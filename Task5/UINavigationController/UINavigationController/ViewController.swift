@@ -26,7 +26,7 @@ class ViewController: UIViewController {
   
   private var resultLaunchTime: UILabel = {
     let label = UILabel()
-    label.configureLable("resultLaunchTime")
+    label.configureLable("")
     return label
   }()
 
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 
   private var resultAppearanceTime: UILabel = {
     let label = UILabel()
-    label.configureLable("result Appearance")
+    label.configureLable("")
     return label
   }()
   
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     displayDate(resultLaunchTime)
-    setNavigationItem()
+    configNavigationItem()
     setupLayot()
   }
   
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
 // MARK: Extension + Helper
 private extension ViewController {
   
-  func setNavigationItem() {
+  func configNavigationItem() {
     title = "Simple app"
     navigationItem.rightBarButtonItem = .init(title: "Update", style: .plain, target: self, action: #selector(pressUpdateButton(_:)))
   }
