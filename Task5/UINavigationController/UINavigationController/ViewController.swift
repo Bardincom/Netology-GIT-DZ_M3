@@ -9,17 +9,6 @@
 import UIKit
 import SnapKit
 
-//В этом задании вам нужно создать простую иерархию контроллеров. Для начала создайте новый проект и настройте его согласно общим требованиям. Единственное отличие - нужно скрыть status bar.
-//
-//Приложение должно состоять из UINavigationController, и двух контроллеров. Изначально в стеке только первый. Второй должен отображаться при нажатии на кнопку Push.
-//
-//На первом контроллере должно отображаться время запуска приложения и время появления этого контроллера на экране. Т.е. при возвращении со второго контроллера на первый это время должно обновляться. Тоже самое должно происходить при нажатии на кнопку Update в навигейшн баре.
-//Отступы для элементов указаны на макете для iPhone SE. Для других девайсов отступы те же самые.
-//
-//Цвет текста в лейблах - черный, шрифт - System font 17. Шрифт в кнопках стандартный.
-
-
-
 class ViewController: UIViewController {
   
   private let date = Date()
@@ -70,9 +59,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     displayDate(resultLaunchTime)
-    
-    self.title = "Simple app"
-    
+    setNavigationItem()
     setupLayot()
   }
   
@@ -84,6 +71,11 @@ class ViewController: UIViewController {
 
 // MARK: Extension + Helper
 private extension ViewController {
+  
+  func setNavigationItem() {
+    title = "Simple app"
+    navigationItem.rightBarButtonItem = .init(title: "Update", style: .plain, target: self, action: #selector(pressUpdateButton(_:)))
+  }
   
   func setupLayot() {
 
@@ -122,17 +114,21 @@ private extension ViewController {
     }
   }
   
-  @objc func switchSecondController(_ sender: UITapGestureRecognizer){
-    let secondViewController = SecondViewController()
-    navigationController?.pushViewController(secondViewController, animated: true)
-  }
-  
   func displayDate(_ label: UILabel) {
     let displayDate = Date()
     let dateFormatter = DateFormatter()
     dateFormatter.dateStyle = .medium
     dateFormatter.timeStyle = .medium
     label.text = "\(dateFormatter.string(from: displayDate))"
+  }
+  
+  @objc func switchSecondController(_ sender: UITapGestureRecognizer){
+    let secondViewController = SecondViewController()
+    navigationController?.pushViewController(secondViewController, animated: true)
+  }
+  
+  @objc func pressUpdateButton(_ sender: UITapGestureRecognizer) {
+    displayDate(resultAppearanceTime)
   }
 }
 
