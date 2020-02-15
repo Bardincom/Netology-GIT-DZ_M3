@@ -22,84 +22,72 @@ import SnapKit
 
 class ViewController: UIViewController {
   
-  let containerView: UIView = {
+  private let date = Date()
+  
+  private let containerView: UIView = {
     let view = UIView()
     return view
   }()
   
   private var launchTimeLable: UILabel = {
-    let lable = UILabel()
-    lable.font = .systemFont(ofSize: 17)
-    lable.text = "Launch time:"
-    lable.textColor = .black
-    lable.backgroundColor = .yellow
-    return lable
+    let label = UILabel()
+    label.configureLable("Launch time:")
+    return label
   }()
   
   private var resultLaunchTime: UILabel = {
-    let lable = UILabel()
-    lable.font = .systemFont(ofSize: 17)
-    lable.text = "resultLaunchTime"
-    lable.textColor = .black
-    lable.backgroundColor = .yellow
-    return lable
+    let label = UILabel()
+    label.configureLable("resultLaunchTime")
+    return label
   }()
 
   private var appearanceTimeLable: UILabel = {
-    let lable = UILabel()
-    lable.font = .systemFont(ofSize: 17)
-    lable.text = "Appearance Time"
-    lable.textColor = .black
-    lable.backgroundColor = .blue
-    return lable
+    let label = UILabel()
+    label.configureLable("Appearance Time:")
+    return label
   }()
 
   private var resultAppearanceTime: UILabel = {
-    let lable = UILabel()
-    lable.font = .systemFont(ofSize: 17)
-    lable.text = "result Appearance"
-    lable.textColor = .black
-    lable.backgroundColor = .blue
-    return lable
+    let label = UILabel()
+    label.configureLable("result Appearance")
+    return label
   }()
   
   private var pushButton: UIButton = {
     let button = UIButton(type: .system)
     button.setTitle("Push", for: .normal)
     button.sizeToFit()
-    button.backgroundColor = .green
     button.addTarget(self, action: #selector(switchSecondController(_:)), for: .touchUpInside)
     return button
   }()
+  
+  override var prefersStatusBarHidden: Bool {
+     return true
+   }
   
   //   MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    displayDate(resultLaunchTime)
+    
     self.title = "Simple app"
-   
+    
     setupLayot()
   }
   
-  override var prefersStatusBarHidden: Bool {
-    return true
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    displayDate(resultAppearanceTime)
   }
-  
 }
 
 // MARK: Extension + Helper
 private extension ViewController {
   
-//  func createLable(_ text: String) -> UILabel {
-//    let lable = UILabel()
-//    lable.font = .systemFont(ofSize: 17)
-//    lable.text = text
-//    return lable
-//  }
-  
   func setupLayot() {
-     view.addSubview(containerView)
-     view.addSubview(pushButton)
+
+    [containerView, pushButton].forEach { view.addSubview($0) }
     
     [launchTimeLable, resultLaunchTime, appearanceTimeLable, resultAppearanceTime].forEach {containerView.addSubview($0)}
     
@@ -138,13 +126,13 @@ private extension ViewController {
     let secondViewController = SecondViewController()
     navigationController?.pushViewController(secondViewController, animated: true)
   }
-}
-
-extension UILabel {
-  func createLable(_ text: String) -> UILabel {
-    let lable = UILabel()
-    lable.font = .systemFont(ofSize: 17)
-    lable.text = text
-    return lable
+  
+  func displayDate(_ label: UILabel) {
+    let displayDate = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    dateFormatter.timeStyle = .medium
+    label.text = "\(dateFormatter.string(from: displayDate))"
   }
 }
+

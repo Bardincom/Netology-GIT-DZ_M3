@@ -16,6 +16,7 @@
 		A2881CB523F74CA2001103EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2881CB323F74CA2001103EF /* LaunchScreen.storyboard */; };
 		A2881CBF23F74D71001103EF /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A2881CBE23F74D71001103EF /* .gitignore */; };
 		A2881CC123F75A93001103EF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2881CC023F75A93001103EF /* SecondViewController.swift */; };
+		A2881CC323F7CA3A001103EF /* Extansion + UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2881CC223F7CA3A001103EF /* Extansion + UILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A2881CB623F74CA2001103EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2881CBE23F74D71001103EF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A2881CC023F75A93001103EF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A2881CC223F7CA3A001103EF /* Extansion + UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extansion + UILabel.swift"; sourceTree = "<group>"; };
 		F52DC3215AD30E185AC16C24 /* Pods-UINavigationController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UINavigationController.release.xcconfig"; path = "Target Support Files/Pods-UINavigationController/Pods-UINavigationController.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				A2881CAA23F74CA0001103EF /* SceneDelegate.swift */,
 				A2881CAC23F74CA0001103EF /* ViewController.swift */,
 				A2881CC023F75A93001103EF /* SecondViewController.swift */,
+				A2881CC223F7CA3A001103EF /* Extansion + UILabel.swift */,
 				A2881CAE23F74CA0001103EF /* Main.storyboard */,
 				A2881CB123F74CA2001103EF /* Assets.xcassets */,
 				A2881CB323F74CA2001103EF /* LaunchScreen.storyboard */,
@@ -215,6 +218,7 @@
 			files = (
 				A2881CC123F75A93001103EF /* SecondViewController.swift in Sources */,
 				A2881CAD23F74CA0001103EF /* ViewController.swift in Sources */,
+				A2881CC323F7CA3A001103EF /* Extansion + UILabel.swift in Sources */,
 				A2881CA923F74CA0001103EF /* AppDelegate.swift in Sources */,
 				A2881CAB23F74CA0001103EF /* SceneDelegate.swift in Sources */,
 			);
