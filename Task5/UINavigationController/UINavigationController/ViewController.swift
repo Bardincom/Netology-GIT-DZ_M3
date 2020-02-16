@@ -13,11 +13,6 @@ class ViewController: UIViewController {
   
   private let date = Date()
   
-  private let containerView: UIView = {
-    let view = UIView()
-    return view
-  }()
-  
   private var launchTimeLable: UILabel = {
     let label = UILabel()
     label.configureLable("Launch time:")
@@ -79,22 +74,10 @@ private extension ViewController {
   
   func setupLayot() {
 
-    [containerView, pushButton].forEach { view.addSubview($0) }
-    
-    [launchTimeLable, resultLaunchTime, appearanceTimeLable, resultAppearanceTime].forEach {containerView.addSubview($0)}
-    
-    containerView.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(44)
-      $0.bottom.trailing.leading.equalToSuperview()
-    }
-    
-    pushButton.snp.makeConstraints {
-      $0.bottom.equalToSuperview().offset(-32)
-      $0.centerX.equalToSuperview()
-    }
+    [launchTimeLable, resultLaunchTime, appearanceTimeLable, resultAppearanceTime, pushButton].forEach {view.addSubview($0)}
     
     launchTimeLable.snp.makeConstraints {
-      $0.top.equalTo(containerView.snp.top).offset(16)
+      $0.top.equalToSuperview().offset(60)
       $0.leading.equalToSuperview().offset(16)
     }
     
@@ -111,6 +94,11 @@ private extension ViewController {
     resultAppearanceTime.snp.makeConstraints {
       $0.top.equalTo(appearanceTimeLable.snp.bottom).offset(16)
       $0.leading.equalToSuperview().offset(16)
+    }
+    
+    pushButton.snp.makeConstraints {
+      $0.bottom.equalToSuperview().offset(-32)
+      $0.centerX.equalToSuperview()
     }
   }
   
