@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A2B0516923F9E23900F139F5"
-               BuildableName = "UITabBarControllerTask6.app"
-               BlueprintName = "UITabBarControllerTask6"
-               ReferencedContainer = "container:UITabBarControllerTask6.xcodeproj">
+               BlueprintIdentifier = "A21F711C23FC3BA3008BEAB3"
+               BuildableName = "Task6-2.app"
+               BlueprintName = "Task6-2"
+               ReferencedContainer = "container:Task6-2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,10 +46,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2B0516923F9E23900F139F5"
-            BuildableName = "UITabBarControllerTask6.app"
-            BlueprintName = "UITabBarControllerTask6"
-            ReferencedContainer = "container:UITabBarControllerTask6.xcodeproj">
+            BlueprintIdentifier = "A21F711C23FC3BA3008BEAB3"
+            BuildableName = "Task6-2.app"
+            BlueprintName = "Task6-2"
+            ReferencedContainer = "container:Task6-2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,10 +63,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A2B0516923F9E23900F139F5"
-            BuildableName = "UITabBarControllerTask6.app"
-            BlueprintName = "UITabBarControllerTask6"
-            ReferencedContainer = "container:UITabBarControllerTask6.xcodeproj">
+            BlueprintIdentifier = "A21F711C23FC3BA3008BEAB3"
+            BuildableName = "Task6-2.app"
+            BlueprintName = "Task6-2"
+            ReferencedContainer = "container:Task6-2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

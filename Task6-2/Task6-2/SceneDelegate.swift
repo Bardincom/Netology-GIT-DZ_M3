@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  UITabBarControllerTask6
+//  Task6-2
 //
-//  Created by Aleksey Bardin on 16.02.2020.
+//  Created by Aleksey Bardin on 18.02.2020.
 //  Copyright © 2020 Aleksey Bardin. All rights reserved.
 //
 
