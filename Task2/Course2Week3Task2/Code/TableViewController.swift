@@ -12,7 +12,6 @@ class TableViewController: UIViewController {
   @IBOutlet weak var photoTableView: UITableView!
   
 //  MARK: Properties
-  
   let photos = PhotoProvider().photos()
   let identifier = "Cell"
   let heightRow = CGFloat(60)
@@ -23,11 +22,9 @@ class TableViewController: UIViewController {
     photoTableView.delegate = self
     photoTableView.dataSource = self
   }
-  
 }
 
 // MARK: Delegate
-
 extension TableViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     photos.count
@@ -42,11 +39,9 @@ extension TableViewController: UITableViewDelegate {
 
     return photoCell
   }
-  
 }
 
 // MARK: Data Source
-
 extension TableViewController:  UITableViewDataSource {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { heightRow }
   
