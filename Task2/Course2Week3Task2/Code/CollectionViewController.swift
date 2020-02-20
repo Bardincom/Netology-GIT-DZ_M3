@@ -47,6 +47,7 @@ extension CollectionViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCollectionViewCell
 
     cell.photoImageView.image = photos[indexPath.item].image
+    cell.photoNameLabel.text = photos[indexPath.item].name
     return cell
   }
 }
