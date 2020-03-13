@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="xfL-Tr-t0W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="gRB-ib-7Fl">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -61,15 +61,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9iO-j8-GaV">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9iO-j8-GaV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="285-I0-2pb" customClass="CustomFlowLayout" customModule="Course2Week3Task2" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Jzx-tE-k3u" customClass="CustomFlowLayout" customModule="Course2Week3Task2" customModuleProvider="target"/>
                                 <cells/>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9iO-j8-GaV" firstAttribute="top" secondItem="b6H-Hc-YTy" secondAttribute="topMargin" id="IfX-E6-bFS"/>
+                            <constraint firstItem="9iO-j8-GaV" firstAttribute="leading" secondItem="b6H-Hc-YTy" secondAttribute="leadingMargin" constant="-16" id="ULV-78-42Y"/>
+                            <constraint firstItem="9iO-j8-GaV" firstAttribute="centerX" secondItem="b6H-Hc-YTy" secondAttribute="centerX" id="gwG-Ng-lcL"/>
+                            <constraint firstItem="9iO-j8-GaV" firstAttribute="bottom" secondItem="b6H-Hc-YTy" secondAttribute="bottomMargin" id="pYe-aH-uXy"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="photoCollectionView" destination="9iO-j8-GaV" id="0Ya-jS-HsY"/>
